@@ -1,0 +1,113 @@
+html, body {
+    height: 100%;
+    background-image: url('bg.jpg');
+}
+
+#wrapper {
+    margin: 5% auto;
+    width: 600px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#main {
+    margin: auto;
+    width:400px;
+    height:400px;
+    position: relative;
+}
+
+.tile {
+    width:96px;
+    height:96px;
+    float: left;
+    text-align: center;
+    border: 2px black solid;
+    vertical-align: middle;
+    font-size: 32px;
+    font-family: sans-serif;
+    line-height: 100px;
+    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px white;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+}
+
+button{
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+select{
+    display: block;
+    margin: 10px auto;
+}
+
+img {
+    height: 30px;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+    border:0;
+}
+
+.kirby { background: url("kirby.jpg"); }
+.doctor-kirby{ background: url("dockirby.jpg"); }
+.kirby-peach{ background: url("kirbypeach.jpg"); }
+.sonic-kirby{ background: url("sonickirby.jpg");  }
+
+#one      { background-position: 0      0;      }
+#two      { background-position: -100px 0;      }
+#three    { background-position: -200px 0;      }
+#four     { background-position: -300px 0;      }
+#five     { background-position: 0      -100px; }
+#six      { background-position: -100px -100px; }
+#seven    { background-position: -200px -100px; }
+#eight    { background-position: -300px -100px; }
+#nine     { background-position: 0      -200px; }
+#ten      { background-position: -100px -200px; }
+#eleven   { background-position: -200px -200px; }
+#twelve   { background-position: -300px -200px; }
+#thirteen { background-position: 0      -300px; }
+#fourteen { background-position: -100px -300px; }
+#fifteen  { background-position: -200px -300px; }
+#sixteen  { border: 2px solid white !important; }
+
+.click {
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.click:hover {
+    border-color: red !important;
+    text-decoration: underline !important;
+    color:blue;
+    cursor: pointer;
+}
+
+.move-up {
+    -webkit-transform: translate(0, -100px);
+    transform: translate(0, -100px);
+}
+
+.move-down {
+    -webkit-transform: translate(0, 100px);
+    transform: translate(0, 100px);
+}
+
+.move-left {
+    -webkit-transform: translate(-100px, 0);
+    transform: translate(-100px, 0);
+}
+
+.move-right {
+    -webkit-transform: translate(100px, 0);
+    transform: translate(100px, 0);
+}
