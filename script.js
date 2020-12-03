@@ -28,6 +28,7 @@ var ids_numeric = {
 };
 
 var select_background;
+var gamePiece;
 
 // This maps the available movement
 // On arr[0] or block "one" if the empty block was there, it can't move up or left, but it can move down or right.
@@ -135,6 +136,7 @@ function shuffleBoard() {
     }
 
     displayBoard();
+    
 }
 
 /**
@@ -194,8 +196,10 @@ function swapPieces(click_id, empty_id) {
         shuffle[empty_id] = shuffle[click_id];
         shuffle[click_id] = temp;
         displayBoard();
+        checkIfSolved();
 
     }, 600);
+    
 }
 
 /**
@@ -247,3 +251,37 @@ function pad(val) {
 function incrementMoves() {
     movesLabel.innerHTML = movesCount++;
 }
+/** Function to check if the board has been solved */
+function checkIfSolved() {
+
+    var n = 1;
+    /* gameBoard gets the ID "Main" from the fifteen.html */
+    var gameBoard = document.getElementById('main');
+    /* gamePiece is the assigned to the div tags inside of div*/
+    gamePiece = gameBoard.getElementsByTagName('div');
+
+    /* we set a For loop to go through the board one by one*/
+    for(var i = 0; i < gamePiece.length; i++){
+        /* if the current gamePiece is equal to n then proceed 
+        *to check next piece
+        */
+        if( n == parseInt(gamePiece[i].innerHTML)){
+            n++;
+        }
+        /**
+         * only way to reach i = 15 is if the previous pieces are in the
+         * correct order.
+         */
+        else if (i == 15 ) {
+            document.getElementById("wining").src = "Kirby_won.png";
+        }
+  
+        else{
+            return;
+        }
+
+    }
+    
+    
+}
+
