@@ -225,7 +225,7 @@ function animateMove(click_id, empty_id) {
  */
 function startMusic() {
     var audio = new Audio('bensound-adventure.mp3');
-    audio.volume(.3);
+    audio.volume = 0.25;
     audio.play();
 }
 var minutesLabel = document.getElementById("minutes");
