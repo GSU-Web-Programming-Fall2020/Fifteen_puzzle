@@ -136,7 +136,7 @@ function shuffleBoard() {
     }
 
     displayBoard();
-    
+
 }
 
 /**
@@ -199,7 +199,7 @@ function swapPieces(click_id, empty_id) {
         checkIfSolved();
 
     }, 600);
-    
+
 }
 
 /**
@@ -225,6 +225,7 @@ function animateMove(click_id, empty_id) {
  */
 function startMusic() {
     var audio = new Audio('bensound-adventure.mp3');
+    audio.volume(.3);
     audio.play();
 }
 var minutesLabel = document.getElementById("minutes");
@@ -261,27 +262,24 @@ function checkIfSolved() {
     gamePiece = gameBoard.getElementsByTagName('div');
 
     /* we set a For loop to go through the board one by one*/
-    for(var i = 0; i < gamePiece.length; i++){
+    for (var i = 0; i < gamePiece.length; i++) {
         /* if the current gamePiece is equal to n then proceed 
-        *to check next piece
-        */
-        if( n == parseInt(gamePiece[i].innerHTML)){
+         *to check next piece
+         */
+        if (n == parseInt(gamePiece[i].innerHTML)) {
             n++;
         }
         /**
          * only way to reach i = 15 is if the previous pieces are in the
          * correct order.
          */
-        else if (i == 15 ) {
+        else if (i == 15) {
             document.getElementById("wining").src = "Kirby_won.png";
-        }
-  
-        else{
+        } else {
             return;
         }
 
     }
-    
-    
-}
 
+
+}
