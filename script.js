@@ -32,7 +32,7 @@ var select_background;
 // This maps the available movement
 // On arr[0] or block "one" if the empty block was there, it can't move up or left, but it can move down or right.
 
-// up right  down  left    [0 = no, 1 = yes] <-- answer to "Is there a space there?"
+// up right  down  left    [0 = no, 1 = yes]
 //[ 0,   1,    1,    0  ]
 var movement = [
     [0, 1, 1, 0], //arr 0: one
