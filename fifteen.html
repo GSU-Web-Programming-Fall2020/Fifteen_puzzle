@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Fifteen Puzzle</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body onload="startGame()">
     <div id="wrapper">
         <h1>Fifteen Puzzle</h1>
         <p>
-            The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide
-            squares into the empty space. How quickly can you solve it?
+            The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares into the empty space. How quickly can you solve it?
         </p>
-
+        <label>Time Elapsed: </label><label id="minutes">00</label> : <label id="seconds">00</label>
+        <br>
+        <label>Moves Made: </label><label id="moves">00</label>
         <span id="win"></span>
 
         <select id="characters" name="characters" title="Backgrounds" onchange="changeBackground()">
@@ -23,30 +26,29 @@
         </select>
 
         <div id="main">
-            <div id="one"      class="tile">1</div>
-            <div id="two"      class="tile">2</div>
-            <div id="three"    class="tile">3</div>
-            <div id="four"     class="tile">4</div>
-            <div id="five"     class="tile">5</div>
-            <div id="six"      class="tile">6</div>
-            <div id="seven"    class="tile">7</div>
-            <div id="eight"    class="tile">8</div>
-            <div id="nine"     class="tile">9</div>
-            <div id="ten"      class="tile">10</div>
-            <div id="eleven"   class="tile">11</div>
-            <div id="twelve"   class="tile">12</div>
+            <div id="one" class="tile">1</div>
+            <div id="two" class="tile">2</div>
+            <div id="three" class="tile">3</div>
+            <div id="four" class="tile">4</div>
+            <div id="five" class="tile">5</div>
+            <div id="six" class="tile">6</div>
+            <div id="seven" class="tile">7</div>
+            <div id="eight" class="tile">8</div>
+            <div id="nine" class="tile">9</div>
+            <div id="ten" class="tile">10</div>
+            <div id="eleven" class="tile">11</div>
+            <div id="twelve" class="tile">12</div>
             <div id="thirteen" class="tile">13</div>
             <div id="fourteen" class="tile">14</div>
-            <div id="fifteen"  class="tile">15</div>
-            <div id="sixteen"  class="tile"></div>
+            <div id="fifteen" class="tile">15</div>
+            <div id="sixteen" class="tile"></div>
         </div>
 
         <button onclick="shuffleBoard()">Shuffle</button>
 
         <p>
-            American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed,
-            Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874
-            by Noyes Palmer Chapman, a postmaster in Canastota, New york.
+            American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed, Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster
+            in Canastota, New york.
         </p>
 
         <p>
@@ -57,4 +59,5 @@
 
     <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

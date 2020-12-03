@@ -1,18 +1,30 @@
 //div elements
 var ids = [
-    "one",      "two",      "three",   "four",
-    "five",     "six",      "seven",   "eight",
-    "nine",     "ten",      "eleven",  "twelve",
+    "one", "two", "three", "four",
+    "five", "six", "seven", "eight",
+    "nine", "ten", "eleven", "twelve",
     "thirteen", "fourteen", "fifteen", ""
 ];
 // ids into the shuffle array
 var shuffle = ids.slice();
 
 var ids_numeric = {
-    "one":1,       "two":2,       "three":3,    "four":4,
-    "five":5,      "six":6,       "seven":7,    "eight":8,
-    "nine":9,      "ten":10,      "eleven":11,  "twelve":12,
-    "thirteen":13, "fourteen":14, "fifteen":15, "sixteen":16
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+    "ten": 10,
+    "eleven": 11,
+    "twelve": 12,
+    "thirteen": 13,
+    "fourteen": 14,
+    "fifteen": 15,
+    "sixteen": 16
 };
 
 var select_background;
@@ -38,7 +50,7 @@ var movement = [
     [1, 1, 0, 0], //arr 12: thirteen
     [1, 1, 0, 1], //arr 13: fourteen
     [1, 1, 0, 1], //arr 14: fifteen
-    [1, 0, 0, 1]  //arr 15: sixteen
+    [1, 0, 0, 1] //arr 15: sixteen
 ];
 
 var background = ["kirby", "doctor-kirby", "kirby-peach", "sonic-kirby"];
@@ -81,6 +93,8 @@ function changeBackground() {
 }
 
 function shuffleBoard() {
+    startMusic();
+    setInterval(setTime, 1000);
     shuffle = ids.slice(); // Reinitialize the shuffled array
     var sixteen = 15;
 
@@ -88,12 +102,12 @@ function shuffleBoard() {
     for (var i = 0; i < 500; i++) {
 
         var movement_id = Math.floor((Math.random() * 4));
-        while(movement[sixteen][movement_id] != 1) {
+        while (movement[sixteen][movement_id] != 1) {
             movement_id = Math.floor((Math.random() * 4));
         }
         // The index id where the blank space will go to
         var move_to;
-        switch(movement_id) {
+        switch (movement_id) {
             case 0:
                 move_to = sixteen - 4;
                 break;
@@ -160,7 +174,7 @@ function displayBoard() {
     }
 
     if (movement[shuffle.indexOf("")][3] == 1) {
-        click_id = shuffle.indexOf("") -1;
+        click_id = shuffle.indexOf("") - 1;
         document.getElementById(shuffle[click_id]).className += " click";
         document.getElementById(shuffle[click_id]).setAttribute("onclick", "swapPieces(" + click_id + ", " + shuffle.indexOf("") + ")");
     }
@@ -174,13 +188,13 @@ function displayBoard() {
  */
 function swapPieces(click_id, empty_id) {
     animateMove(click_id, empty_id);
-
+    incrementMoves();
     setTimeout(function() {
         var temp = shuffle[empty_id];
         shuffle[empty_id] = shuffle[click_id];
         shuffle[click_id] = temp;
         displayBoard();
-        
+
     }, 600);
 }
 
@@ -202,3 +216,34 @@ function animateMove(click_id, empty_id) {
     }
 }
 
+/**
+ * Do the audio
+ */
+function startMusic() {
+    var audio = new Audio('bensound-adventure.mp3');
+    audio.play();
+}
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+var movesLabel = document.getElementById("moves");
+var movesCount = 1;
+
+function setTime() {
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+        return "0" + valString;
+    } else {
+        return valString;
+    }
+}
+
+function incrementMoves() {
+    movesLabel.innerHTML = movesCount++;
+}
